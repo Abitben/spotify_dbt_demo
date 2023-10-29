@@ -6,7 +6,7 @@ SELECT
     album_name,
     album_type,
     --- Replace brackets and ' sign to split into array
-    {{ string_split_custom('available_markets') }} as test_macro,
+    {{ string_split_custom('available_markets') }} as available_markets,
     
     ---- Some date are not complete
     CASE
