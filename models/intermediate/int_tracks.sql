@@ -23,5 +23,5 @@ SELECT
     t_features.time_signature
 
 FROM {{ref('stg_albums_tracks')}} as tracks
-LEFT JOIN {{ref('stg_tracks_pop')}} tracks_pop ON tracks.track_id = tracks_pop.track_id
-LEFT JOIN {{ref('stg_tracks_audio_features')}} t_features ON tracks.track_id = t_features.track_id
+INNER JOIN {{ref('stg_tracks_pop')}} tracks_pop ON tracks.track_id = tracks_pop.track_id
+INNER JOIN {{ref('stg_tracks_audio_features')}} t_features ON tracks.track_id = t_features.track_id
