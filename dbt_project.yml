@@ -52,9 +52,9 @@ models:
       schema: mart
       +materialized: table
       +docs:
-        node_color: gold
+        node_color: "#F5B041"
       analysis:
         +materialized: view
         +docs:
-          node_color: red
+          node_color: "#CD5C5C"
 
