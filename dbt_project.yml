@@ -41,7 +41,7 @@ models:
     example:
       +materialized: table
     staging:
-      schema: stg
+      schema: staging
       +materialized: table
     intermediate:
       schema: intermediate
