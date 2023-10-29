@@ -133,33 +133,8 @@ models:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: INT64
 
-  - name: dim_artists
+  - name: fct_key
     columns:
-      - name: artist_key
-        tests:
-          - not_null
-          - unique
-      - name: artist_name
-        tests:
-          - not_null
-      - name: artist_genres
-      - name: sp_followers
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: INT64
-      - name: artist_popularity
-        tests:
-          - not_null
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: INT64
-
-  - name: fct_post_dubstep
-    columns:
-      - name: fct_key
-        tests:
-          - not_null
-          - unique
       - name: track_key
         tests:
           - not_null
