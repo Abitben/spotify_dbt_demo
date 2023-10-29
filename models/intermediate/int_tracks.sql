@@ -1,5 +1,4 @@
 SELECT
-    {{ dbt_utils.generate_surrogate_key(['tracks.track_id']) }} as track_key,
     tracks.track_id,
     tracks.album_id,
     tracks.track_name,
