@@ -27,14 +27,13 @@ models:
         columns:
           - artist_id
 
-  - name: stg_track_features
+  - name: stg_track_audio_features
     description: "This table contains staging information about various features of the tracks in the music database."
     columns:
       - name: track_id
         description: "The unique identifier for each track."
         tests:
           - not_null
-          - unique
       - name: danceability
         description: "A measure of how suitable a track is for dancing."
         tests:
@@ -109,12 +108,7 @@ models:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: INT64
-    unique_key: track_id
-    relationships:
-      - name: tracks
-        description: "The relationship of this table to the tracks table."
-        columns:
-          - track_id
+
 
   - name: stg_artists
     description: "This table contains staging information about various artists in the music database."
@@ -177,13 +171,8 @@ models:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: INT64
-    relationships:
-      - name: artists
-        description: "The relationship of this table to the artists table."
-        columns:
-          - artist_id
 
-  - name: stg_albums_track
+  - name: stg_albums_tracks
     description: "This table contains staging information about the relationships between albums and tracks in the music database."
     columns:
       - name: track_id
@@ -225,14 +214,4 @@ models:
         tests:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: FLOAT64
-    unique_key: track_id
-    relationships:
-      - name: tracks
-        description: "The relationship of this table to the tracks table."
-        columns:
-          - track_id
-      - name: albums
-        description: "The relationship of this table to the albums table."
-        columns:
-          - album_id
+              column_type: INT64

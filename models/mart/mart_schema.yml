@@ -166,9 +166,14 @@ models:
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: INT64
 
-  - name: fct_key
+  - name: fct_
     description: "This table serves as a fact table linking tracks, albums, and artists through their respective keys."
     columns:
+      - name: fct_key
+        description: primary key for fact
+        tests:
+          - unique
+          - not_null
       - name: track_key
         description: "The key associated with each track in the fact table."
         tests:
