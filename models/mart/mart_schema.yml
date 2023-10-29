@@ -1,0 +1,188 @@
+version: 2
+
+models:
+
+  - name: dim_tracks
+    description: "This table contains dimensional information about various tracks in the music database."
+    columns:
+      - name: track_key
+        description: "The unique key for each track."
+        tests:
+          - not_null
+          - unique
+      - name: track_popularity
+        description: "The popularity score of the track."
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: INT64
+          - not_null
+      - name: danceability
+        description: "A measure of how suitable a track is for dancing."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: FLOAT64
+      - name: energy
+        description: "Represents the energy of the track."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: FLOAT64
+      - name: key_sign
+        description: "The musical key of the track."
+        tests:
+          - not_null
+      - name: loudness
+        description: "The loudness of the track in decibels (dB)."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: FLOAT64
+      - name: mode
+        description: "Represents the modality of the track (major or minor)."
+        tests:
+          - not_null
+      - name: speechiness
+        description: "Indicates the presence of spoken words in the track."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: FLOAT64
+      - name: acousticness
+        description: "Represents the acoustic nature of the track."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: FLOAT64
+      - name: instrumentalness
+        description: "Indicates whether the track has no vocals."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: FLOAT64
+      - name: liveness
+        description: "Represents the presence of a live audience in the recording."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: FLOAT64
+      - name: valence
+        description: "Describes the musical positiveness conveyed by a track."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: FLOAT64
+      - name: tempo
+        description: "The tempo of the track in beats per minute (BPM)."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: FLOAT64
+      - name: track_duration
+        description: "The duration of the track in milliseconds."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: INT64
+      - name: time_signature
+        description: "The time signature of the track."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: INT64
+      - name: disc_number
+        description: "The disc number of the track in the album."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: INT64
+      - name: track_number
+        description: "The track number on the album."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: INT64
+      - name: explicit
+        description: "Indicates whether the track contains explicit content."
+        tests:
+          - not_null
+
+
+  - name: dim_artists
+    description: "This table contains dimensional information about various artists in the music database."
+    columns:
+      - name: artist_key
+        description: "The unique key for each artist."
+        tests:
+          - not_null
+          - unique
+      - name: artist_name
+        description: "The name of the artist."
+        tests:
+          - not_null
+      - name: artist_genres
+        description: "The genres associated with the artist."
+      - name: sp_followers
+        description: "The number of Spotify followers for the artist."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: INT64
+      - name: artist_popularity
+        description: "The popularity score of the artist."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: INT64
+
+  - name: dim_albums
+    description: "This table contains dimensional information about various albums in the music database."
+    columns:
+      - name: album_key
+        description: "The unique key for each album."
+        tests:
+          - not_null
+          - unique
+      - name: album_name
+        description: "The name of the album."
+        tests:
+          - not_null
+      - name: album_type
+        description: "The type of the album (e.g., single, album, compilation)."
+        tests:
+          - not_null
+      - name: available_markets
+        description: "The markets where the album is available."
+      - name: release_date
+        description: "The release date of the album."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: date
+      - name: total_tracks
+        description: "The total number of tracks in the album."
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: INT64
+
+  - name: fct_
+    description: "This table serves as a fact table linking tracks, albums, and artists through their respective keys."
+    columns:
+      - name: fct_key
+        description: primary key for fact
+        tests:
+          - unique
+          - not_null
+      - name: track_key
+        description: "The key associated with each track in the fact table."
+        tests:
+          - not_null
+      - name: album_key
+        description: "The key associated with each album in the fact table."
+        tests:
+          - not_null
+      - name: artist_key
+        description: "The key associated with each artist in the fact table."
+        tests:
+          - not_null
