@@ -1,6 +1,6 @@
 SELECT 
     --- PK
-    track_id
+    track_id,
     --- FK
     album_id,
     --- Column not clear, renaming
