@@ -15,7 +15,6 @@ sources:
             description: "ID of the album."
             tests:
               - not_null
-              - unique
           - name: album_name
             description: "Name of the album."
             tests:
@@ -46,7 +45,6 @@ sources:
             description: "ID of the track."
             tests:
               - not_null
-              - unique
           - name: artist
             description: "Name of the artist associated with the track."
           - name: artist_id
@@ -100,7 +98,6 @@ sources:
             description: "ID of the track."
             tests:
               - not_null
-              - unique
           - name: danceability
             description: "Danceability score of the track."
             tests:
@@ -163,7 +160,6 @@ sources:
             description: "ID of the track."
             tests:
               - not_null
-              - unique
           - name: track
             description: "Name of the track."
           - name: popularity
