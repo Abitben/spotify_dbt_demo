@@ -1,7 +1,6 @@
 version: 2
 
 models:
-
   - name: dim_tracks
     description: "This table contains dimensional information about various tracks in the music database."
     columns:
