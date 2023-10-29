@@ -1,6 +1,6 @@
 SELECT
     --- GENERATE PK
-    {{ dbt_utils.generate_surrogate_key(['track_id']) }} as track_key,
+    {{ dbt_utils.generate_surrogate_key(['track_id','track_number','track_popularity']) }} as track_key,
     track_name,
     disc_number,
     track_number,

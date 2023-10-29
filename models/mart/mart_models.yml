@@ -1,9 +1,9 @@
 version: 2
 
 models:
-  - name: int_tracks
+  - name: dim_tracks
     columns:
-      - name: track_id
+      - name: track_key
         tests:
           - not_null
           - unique
@@ -73,13 +73,6 @@ models:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: INT64
-      - name: album_id
-        tests:
-          - not_null
-      - name: artist
-      - name: artist_id
-        tests:
-          - not_null
       - name: disc_number
         tests:
           - not_null
@@ -95,9 +88,9 @@ models:
           - not_null
 
 
-  - name: int_artists
+  - name: dim_artists
     columns:
-      - name: artist_id
+      - name: artist_key
         tests:
           - not_null
           - unique
@@ -115,16 +108,13 @@ models:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: INT64
-    unique_key: artist_id
 
-  - name: int_albums
+  - name: dim_albums
     columns:
-      - name: album_id
+      - name: album_key
         tests:
           - not_null
-      - name: artist_id
-        tests:
-          - not_null
+          - unique
       - name: album_name
         tests:
           - not_null
@@ -142,3 +132,40 @@ models:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: INT64
+
+  - name: dim_artists
+    columns:
+      - name: artist_key
+        tests:
+          - not_null
+          - unique
+      - name: artist_name
+        tests:
+          - not_null
+      - name: artist_genres
+      - name: sp_followers
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: INT64
+      - name: artist_popularity
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: INT64
+
+  - name: fct_post_dubstep
+    columns:
+      - name: fct_key
+        tests:
+          - not_null
+          - unique
+      - name: track_key
+        tests:
+          - not_null
+      - name: album_key
+        tests:
+          - not_null
+      - name: artist_key
+        tests:
+          - not_null
