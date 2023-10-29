@@ -1,6 +1,6 @@
 SELECT 
     -- PK 
-    {{ dbt_utils.generate_surrogate_key(['album_id']) }} as album_key,
+    {{ dbt_utils.generate_surrogate_key(['album_id', 'album_name','artist_id']) }} as album_key,
     album_name,
     album_type,
     available_markets,

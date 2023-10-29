@@ -1,0 +1,171 @@
+version: 2
+
+models:
+  - name: dim_tracks
+    columns:
+      - name: track_key
+        tests:
+          - not_null
+          - unique
+      - name: track_popularity
+        tests:
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: INT64
+          - not_null
+      - name: danceability
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: FLOAT64
+      - name: energy
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: FLOAT64
+      - name: key_sign
+        tests:
+          - not_null
+      - name: loudness
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: FLOAT64
+      - name: mode
+        tests:
+          - not_null
+      - name: speechiness
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: FLOAT64
+      - name: acousticness
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: FLOAT64
+      - name: instrumentalness
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: FLOAT64
+      - name: liveness
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: FLOAT64
+      - name: valence
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: FLOAT64
+      - name: tempo
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: FLOAT64
+      - name: track_duration
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: INT64
+      - name: time_signature
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: INT64
+      - name: disc_number
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: INT64
+      - name: track_number
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: INT64
+      - name: explicit
+        tests:
+          - not_null
+
+
+  - name: dim_artists
+    columns:
+      - name: artist_key
+        tests:
+          - not_null
+          - unique
+      - name: artist_name
+        tests:
+          - not_null
+      - name: artist_genres
+      - name: sp_followers
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: INT64
+      - name: artist_popularity
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: INT64
+
+  - name: dim_albums
+    columns:
+      - name: album_key
+        tests:
+          - not_null
+          - unique
+      - name: album_name
+        tests:
+          - not_null
+      - name: album_type
+        tests:
+          - not_null
+      - name: available_markets
+      - name: release_date
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: date
+      - name: total_tracks
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: INT64
+
+  - name: dim_artists
+    columns:
+      - name: artist_key
+        tests:
+          - not_null
+          - unique
+      - name: artist_name
+        tests:
+          - not_null
+      - name: artist_genres
+      - name: sp_followers
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: INT64
+      - name: artist_popularity
+        tests:
+          - not_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: INT64
+
+  - name: fct_post_dubstep
+    columns:
+      - name: fct_key
+        tests:
+          - not_null
+          - unique
+      - name: track_key
+        tests:
+          - not_null
+      - name: album_key
+        tests:
+          - not_null
+      - name: artist_key
+        tests:
+          - not_null

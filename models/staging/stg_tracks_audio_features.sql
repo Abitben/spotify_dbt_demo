@@ -1,6 +1,6 @@
 SELECT
     ---- PK and FK
-    track_id,
+    distinct(track_id) as track_id,
     CAST(danceability as FLOAT64) as danceability,
     CAST(energy as FLOAT64) as energy,
     key as key_sign,
