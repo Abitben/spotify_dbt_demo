@@ -5,4 +5,7 @@ SELECT
     track as track_name,
     ---rename, ambigous with artist table otherwise
     CAST(popularity as INT64) as track_popularity
-FROM {{source('raw_sources','raw_tracks_pop')}}
+
+--- call a source ?      
+FROM 
+    batch-1414.raw_data_spotify.raw_tracks_pop

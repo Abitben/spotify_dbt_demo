@@ -53,8 +53,4 @@ models:
       +materialized: table
       +docs:
         node_color: gold
-      analysis:
-        +materialized: view
-        +docs:
-          node_color: red
 

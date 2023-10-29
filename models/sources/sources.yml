@@ -151,18 +151,4 @@ sources:
             tests:
               - not_null
 
-      - name: raw_tracks_pop
-        description: "Table containing raw data for popular tracks."
-        columns:
-          - name: int64_field_0
-            description: "Description of the field int64_field_0."
-          - name: track_id
-            description: "ID of the track."
-            tests:
-              - not_null
-          - name: track
-            description: "Name of the track."
-          - name: popularity
-            description: "Popularity score of the track."
-            tests:
-              - not_null
+# add a source for stg_tracks
