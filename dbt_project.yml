@@ -41,20 +41,20 @@ models:
     staging:
       schema: staging
       +materialized: table
-      docs:
-        node_color: "#88D498"
+      +docs:
+        node_color: blue
     intermediate:
       schema: intermediate
       +materialized: table
-      docs:
-          node_color: "#F6F5AE"
+      +docs:
+        node_color: purple
     mart:
       schema: mart
       +materialized: table
-      docs:
-        node_color: "#D7BE82"
+      +docs:
+        node_color: gold
       analysis:
         +materialized: view
-        docs:
-          node_color: "#FFD046"
+        +docs:
+          node_color: red
 
