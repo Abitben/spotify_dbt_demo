@@ -1,0 +1,172 @@
+version: 2
+
+sources:
+  - name: raw_sources
+    schema: raw_data_spotify
+    tables:
+      - name: raw_albums
+        description: "Table containing raw data for albums."
+        columns:
+          - name: int64_field_0
+            description: "Description of the field int64_field_0."
+          - name: artist_id
+            description: "ID of the artist associated with the album."
+          - name: album_id
+            description: "ID of the album."
+            tests:
+              - not_null
+              - unique
+          - name: album_name
+            description: "Name of the album."
+            tests:
+              - not_null
+          - name: album_type
+            description: "Type of the album."
+          - name: available_markets
+            description: "List of available markets for the album."
+          - name: release_date
+            description: "Release date of the album."
+          - name: total_tracks
+            description: "Total number of tracks in the album."
+
+      - name: raw_albums_tracks
+        description: "Table containing raw data for tracks."
+        columns:
+          - name: int64_field_0
+            description: "Description of the field int64_field_0."
+          - name: album_id
+            description: "ID of the album associated with the track."
+            tests:
+              - not_null
+          - name: track
+            description: "Name of the track."
+            tests:
+              - not_null
+          - name: track_id
+            description: "ID of the track."
+            tests:
+              - not_null
+              - unique
+          - name: artist
+            description: "Name of the artist associated with the track."
+          - name: artist_id
+            description: "ID of the artist associated with the track."
+            tests:
+              - not_null
+          - name: disc_number
+            description: "Number of the disc the track belongs to."
+          - name: track_number
+            description: "Number of the track within the album."
+          - name: explicit
+            description: "Flag indicating whether the track is explicit."
+          - name: duration
+            description: "Duration of the track."
+            tests:
+              - not_null
+
+
+      - name: raw_artists
+        description: "Table containing raw data for artists."
+        columns:
+          - name: int64_field_0
+            description: "Description of the field int64_field_0."
+          - name: artist_id
+            description: "ID of the artist."
+            tests:
+              - not_null
+              - unique
+          - name: name
+            description: "Name of the artist."
+            tests:
+              - not_null
+          - name: genres
+            description: "Genres associated with the artist."
+          - name: sp_followers
+            description: "Number of followers on Spotify for the artist."
+            tests:
+              - not_null
+          - name: artist_popularity
+            description: "Popularity score of the artist."
+            tests:
+              - not_null
+
+
+      - name: raw_tracks_audio_features
+        description: "Table containing raw data for tracks audio features."
+        columns:
+          - name: Unnamed__0
+            description: "Description of the field Unnamed__0."
+          - name: track_id
+            description: "ID of the track."
+            tests:
+              - not_null
+              - unique
+          - name: danceability
+            description: "Danceability score of the track."
+            tests:
+              - not_null
+          - name: energy
+            description: "Energy score of the track."
+            tests:
+              - not_null
+          - name: key
+            description: "Key in which the track is composed."
+            tests:
+              - not_null
+          - name: loudness
+            description: "Loudness of the track."
+            tests:
+              - not_null
+          - name: mode
+            description: "Mode of the track."
+            tests:
+              - not_null
+          - name: speechiness
+            description: "Speechiness score of the track."
+            tests:
+              - not_null
+          - name: acousticness
+            description: "Acousticness score of the track."
+            tests:
+              - not_null
+          - name: instrumentalness
+            description: "Instrumentalness score of the track."
+            tests:
+              - not_null
+          - name: liveness
+            description: "Liveness score of the track."
+            tests:
+              - not_null
+          - name: valence
+            description: "Valence score of the track."
+            tests:
+              - not_null
+          - name: tempo
+            description: "Tempo of the track."
+            tests:
+              - not_null
+          - name: duration_ms
+            description: "Duration of the track in milliseconds."
+            tests:
+              - not_null
+          - name: time_signature
+            description: "Time signature of the track."
+            tests:
+              - not_null
+
+      - name: raw_tracks_pop
+        description: "Table containing raw data for popular tracks."
+        columns:
+          - name: int64_field_0
+            description: "Description of the field int64_field_0."
+          - name: track_id
+            description: "ID of the track."
+            tests:
+              - not_null
+              - unique
+          - name: track
+            description: "Name of the track."
+          - name: popularity
+            description: "Popularity score of the track."
+            tests:
+              - not_null
