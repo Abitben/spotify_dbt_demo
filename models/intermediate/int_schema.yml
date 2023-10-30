@@ -143,7 +143,6 @@ models:
           - not_null
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: INT64
-    unique_key: artist_id
 
   - name: int_albums
     description: "This table contains information about various albums in the music database."
