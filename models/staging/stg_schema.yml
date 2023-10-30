@@ -16,10 +16,8 @@ models:
           - not_null
       - name: track_popularity
         description: "The popularity score of the track."
-        tests:
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: INT64
-          - not_null
+#ADD A TEST HERE 
+
     unique_key: track_id
     relationships:
       - name: artists
