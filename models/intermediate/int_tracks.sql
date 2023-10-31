@@ -1,5 +1,5 @@
 SELECT
-    tracks_pop.track_id,
+    tracks.track_id,
     tracks.album_id,
     tracks.track_name,
     tracks.artist,
@@ -23,5 +23,5 @@ SELECT
     t_features.time_signature
 
 FROM spotify-dbt-demo-403617.dbt_dev.stg_albums_tracks as tracks
-INNER JOIN {{ref('stg_tracks_pop')}} tracks_pop ON tracks.track_id = tracks_pop.track_ids
+INNER JOIN {{ref('stg_tracks_pop')}} tracks_pop ON tracks.track_id = tracks_pop.track_id
 INNER JOIN {{ref('stg_tracks_audio_features')}} t_features ON tracks.track_id = t_features.track_id

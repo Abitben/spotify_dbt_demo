@@ -1,6 +1,6 @@
 SELECT 
     --- PK and FK 
-    distinct(track_id) as track_ids,
+    distinct(track_id) as track_id,
     -- ambigous so renaming
     track as track_name,
     ---rename, ambigous with artist table otherwise
