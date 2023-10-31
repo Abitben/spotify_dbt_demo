@@ -1,6 +1,6 @@
 SELECT 
     --- PK and FK 
-    distinct(track_id) as track_id,
+    distinct(track_id) as track_ids,
     -- ambigous so renaming
     track as track_name,
     ---rename, ambigous with artist table otherwise
@@ -8,4 +8,4 @@ SELECT
 
 --- call a source ?      
 FROM 
-    batch-1414.raw_data_spotify.raw_tracks_pop
+    spotify-dbt-demo-403617.raw_data_spotify.raw_tracks_pop

@@ -5,7 +5,7 @@ models:
   - name: stg_tracks_pop
     description: "This table contains staging information about track popularities in the music database."
     columns:
-      - name: track_id
+      - name: track_ids
         description: "The unique identifier for each track."
         tests:
           - not_null
