@@ -173,7 +173,7 @@ models:
   - name: stg_albums_tracks
     description: "This table contains staging information about the relationships between albums and tracks in the music database."
     columns:
-      - name: track_id
+      - name: track_ids
         description: "The unique identifier for each track in the album."
         tests:
           - not_null
