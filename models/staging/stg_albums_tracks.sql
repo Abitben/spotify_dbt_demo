@@ -1,6 +1,6 @@
 SELECT 
     --- PK
-    distinct(track_id) as track_ids,
+    distinct(track_id) as track_id,
     --- FK
     album_id,
     --- Column not clear, renaming

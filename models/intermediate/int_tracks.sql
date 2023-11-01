@@ -1,5 +1,5 @@
 SELECT
-    tracks.track_ids,
+    tracks.track_id,
     tracks.album_id,
     tracks.track_name,
     tracks.artist,
