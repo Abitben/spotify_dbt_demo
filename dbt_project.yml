@@ -38,8 +38,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   spotify_dbt_demo:
     +materialized: table
-    # Applies to all files under models/example/
-    # insert staging 
+    staging:
+      +materialized: table
+      schema: staging
 
     
     intermediate:
