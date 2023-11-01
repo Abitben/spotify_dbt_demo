@@ -7,8 +7,7 @@ SELECT
     album_type,
 
     --- Replace brackets and ' sign to split into array
-    SPLIT(REPLACE(REPLACE(REPLACE(available_markets, "[", ""),"]",""),"'", ""),",") as available_markets,
-    
+    {{split_replace('available_markets')}} as available_markets,    
     ---- Some date are not complete
     CASE
         WHEN regexp_contains(release_date, r'^\d{4}$') THEN PARSE_DATE('%Y', release_date)
