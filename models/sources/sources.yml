@@ -152,3 +152,8 @@ sources:
               - not_null
 
 # add a source for raw_tracks
+      - name: raw_tracks_pop
+        columns:
+            - name: track_id
+              tests:
+                - unique 

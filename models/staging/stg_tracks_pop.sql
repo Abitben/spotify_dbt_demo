@@ -8,4 +8,4 @@ SELECT
 
 --- call a source ?      
 FROM 
-    spotify-dbt-demo-403617.raw_data_spotify.raw_tracks_pop
+    {{ source('raw_sources', 'raw_tracks_pop') }}
