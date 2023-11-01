@@ -27,7 +27,7 @@ models:
         columns:
           - artist_id
 
-  - name: stg_track_audio_features
+  - name: stg_tracks_audio_features
     description: "This table contains staging information about various features of the tracks in the music database."
     columns:
       - name: track_id
