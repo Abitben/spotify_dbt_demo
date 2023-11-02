@@ -45,6 +45,9 @@ sources:
             description: "ID of the track."
             tests:
               - not_null
+              - dbt_utils.cardinality_equality:
+                  field: track_id
+                  to: ref('raw_tracks_pop')
           - name: artist
             description: "Name of the artist associated with the track."
           - name: artist_id
